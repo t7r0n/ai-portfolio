@@ -1,0 +1,14 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro'
+import Nav from '../components/Nav.astro'
+import Footer from '../components/Footer.astro'
+import { siteConfig } from '../site.config'
+---
+<BaseLayout title="About">
+  <Fragment slot="nav"><Nav /></Fragment>
+  <article class="prose dark:prose-invert">
+    <h1>About</h1>
+    <p><strong>{siteConfig.fullName}</strong> is an AI Engineer focused on LLMs, RAG, and Agents. This site is built with Astro and Tailwind, with content collections for easy updates.</p>
+  </article>
+  <Fragment slot="footer"><Footer /></Fragment>
+</BaseLayout>

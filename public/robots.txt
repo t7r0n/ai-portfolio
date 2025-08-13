@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://t7r0n.github.io/ai-portfolio/sitemap-index.xml

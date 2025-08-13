@@ -1,0 +1,30 @@
+---
+import { siteConfig } from '../site.config'
+import '../styles/global.css'
+---
+
+<html lang="en" class="scroll-smooth">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{Astro.props.title ? `${Astro.props.title} — ${siteConfig.fullName}` : `${siteConfig.fullName} — ${siteConfig.tagline}`}</title>
+    <meta name="description" content={siteConfig.tagline} />
+    <meta property="og:title" content={siteConfig.fullName} />
+    <meta property="og:description" content={siteConfig.tagline} />
+    <meta property="og:type" content="website" />
+    <meta property="og:image" content={`${Astro.site?.pathname ?? '/' }og.svg`} />
+    <meta name="twitter:card" content="summary_large_image" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet" />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+  </head>
+  <body class="min-h-screen bg-white text-neutral-900 dark:bg-neutral-950 dark:text-neutral-100 font-sans">
+    <a href="#content" class="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:bg-primary/10 focus:ring-2 focus:ring-primary rounded px-3 py-2">Skip to content</a>
+    <slot name="nav" />
+    <main id="content" class="mx-auto max-w-5xl px-6 py-12">
+      <slot />
+    </main>
+    <slot name="footer" />
+  </body>
+</html>

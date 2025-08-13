@@ -1,0 +1,17 @@
+---
+import { siteConfig } from '../site.config'
+const base = Astro.site?.pathname ?? '/'
+---
+<nav class="sticky top-0 z-40 backdrop-blur supports-[backdrop-filter]:bg-white/70 dark:supports-[backdrop-filter]:bg-neutral-950/70 border-b border-black/5 dark:border-white/5">
+  <div class="mx-auto max-w-5xl px-6 h-14 flex items-center justify-between">
+    <a href={base} class="font-semibold tracking-tight">{siteConfig.fullName}</a>
+    <div class="flex items-center gap-4 text-sm">
+      <a href={`${base}projects/`} class="hover:text-primary transition">Projects</a>
+      <a href={`${base}publications/`} class="hover:text-primary transition">Publications</a>
+      <a href={`${base}experience/`} class="hover:text-primary transition">Experience</a>
+      <a href={`${base}awards/`} class="hover:text-primary transition">Awards</a>
+      <a href={`${base}extras/`} class="hover:text-primary transition">Extras</a>
+      <a href={`${base}about/`} class="hover:text-primary transition">About</a>
+    </div>
+  </div>
+</nav>

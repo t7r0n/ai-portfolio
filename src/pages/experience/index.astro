@@ -1,0 +1,25 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro'
+import Nav from '../../components/Nav.astro'
+import Footer from '../../components/Footer.astro'
+import { getCollection } from 'astro:content'
+const items = await getCollection('experience')
+---
+<BaseLayout title="Experience">
+  <Fragment slot="nav"><Nav /></Fragment>
+  <h1 class="text-3xl font-bold mb-6">Experience</h1>
+  <ul class="space-y-4">
+    {items.sort((a,b)=> (b.data.start||'').localeCompare(a.data.start||'')).map(e => (
+      <li class="rounded-2xl p-5 border border-black/5 dark:border-white/5">
+        <h3 class="font-semibold">{e.data.role} — {e.data.org}</h3>
+        <p class="text-sm text-neutral-600 dark:text-neutral-300">{e.data.start} – {e.data.end ?? 'Present'} • {e.data.location}</p>
+        {e.data.bullets?.length > 0 && (
+          <ul class="list-disc ml-5 mt-2 text-sm text-neutral-700 dark:text-neutral-300">
+            {e.data.bullets.map(b => (<li>{b}</li>))}
+          </ul>
+        )}
+      </li>
+    ))}
+  </ul>
+  <Fragment slot="footer"><Footer /></Fragment>
+</BaseLayout>

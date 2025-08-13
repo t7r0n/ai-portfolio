@@ -1,0 +1,12 @@
+node_modules/
+.dist/
+dist/
+.astro/
+.env
+.env.*
+.DS_Store
+*.local
+.cache/
+.npm/
+.vscode/*.log
+coverage/
