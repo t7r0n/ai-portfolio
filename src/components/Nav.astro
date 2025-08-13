@@ -1,6 +1,7 @@
 ---
 import { siteConfig } from '../site.config'
 const base = Astro.site?.pathname ?? '/'
+import ThemeToggle from './ThemeToggle.astro'
 ---
 <nav class="sticky top-0 z-40 backdrop-blur supports-[backdrop-filter]:bg-white/70 dark:supports-[backdrop-filter]:bg-neutral-950/70 border-b border-black/5 dark:border-white/5">
   <div class="mx-auto max-w-5xl px-6 h-14 flex items-center justify-between">
@@ -12,7 +13,7 @@ const base = Astro.site?.pathname ?? '/'
       <a href={`${base}awards/`} class="hover:text-primary transition">Awards</a>
       <a href={`${base}extras/`} class="hover:text-primary transition">Extras</a>
       <a href={`${base}about/`} class="hover:text-primary transition">About</a>
-      <slot name="actions" />
+      <ThemeToggle />
     </div>
   </div>
 </nav>
