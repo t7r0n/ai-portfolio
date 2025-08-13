@@ -1,0 +1,22 @@
+<button
+  class="rounded-md border border-black/10 dark:border-white/10 px-2 py-1 text-xs hover:bg-black/5 dark:hover:bg-white/5 transition"
+  aria-label="Toggle theme"
+  onclick="(function(){
+    const c = document.documentElement.classList
+    const dark = c.toggle('dark')
+    try { localStorage.setItem('theme', dark ? 'dark' : 'light') } catch {}
+  })()"
+>
+  Theme
+</button>
+
+<script is:inline>
+  // Initialize theme from system preference or saved value
+  try {
+    const saved = localStorage.getItem('theme')
+    const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches
+    if (saved === 'dark' || (!saved && prefersDark)) {
+      document.documentElement.classList.add('dark')
+    }
+  } catch {}
+  </script>

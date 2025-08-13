@@ -1,0 +1,13 @@
+---
+import Tag from './Tag.astro'
+const { title, summary, href, tags = [] } = Astro.props as { title: string; summary: string; href: string; tags?: string[] }
+---
+<a href={href} class="group rounded-2xl p-5 border border-black/5 dark:border-white/5 shadow-soft hover:-translate-y-0.5 hover:shadow-md transition block">
+  <h3 class="font-semibold mb-2 group-hover:text-primary transition">{title}</h3>
+  <p class="text-sm text-neutral-600 dark:text-neutral-300">{summary}</p>
+  {tags.length > 0 && (
+    <div class="mt-3 flex flex-wrap gap-2">
+      {tags.map(t => (<Tag label={t} />))}
+    </div>
+  )}
+</a>

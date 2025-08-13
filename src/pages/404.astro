@@ -8,6 +8,7 @@ import Footer from '../components/Footer.astro'
   <div class="text-center py-24">
     <h1 class="text-5xl font-bold mb-4">404</h1>
     <p class="text-neutral-600 dark:text-neutral-300">Page not found.</p>
+    <a href={Astro.site?.pathname ?? '/'} class="mt-6 inline-block rounded-lg border border-black/10 dark:border-white/10 px-3 py-2 hover:bg-black/5 dark:hover:bg-white/5 transition">Go home</a>
   </div>
   <Fragment slot="footer"><Footer /></Fragment>
 </BaseLayout>

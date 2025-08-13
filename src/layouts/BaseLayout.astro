@@ -17,7 +17,19 @@ import '../styles/global.css'
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet" />
-    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <link rel="icon" href={`${Astro.site?.pathname ?? '/' }favicon.svg`} type="image/svg+xml" />
+    <script type="application/ld+json">
+      {JSON.stringify({
+        '@context': 'https://schema.org',
+        '@type': 'Person',
+        name: siteConfig.fullName,
+        jobTitle: 'AI Engineer',
+        email: siteConfig.email,
+        sameAs: [
+          `https://github.com/${siteConfig.githubUser}`,
+        ],
+      })}
+    </script>
   </head>
   <body class="min-h-screen bg-white text-neutral-900 dark:bg-neutral-950 dark:text-neutral-100 font-sans">
     <a href="#content" class="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:bg-primary/10 focus:ring-2 focus:ring-primary rounded px-3 py-2">Skip to content</a>

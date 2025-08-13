@@ -4,13 +4,14 @@ import Nav from '../../components/Nav.astro'
 import Footer from '../../components/Footer.astro'
 import { getCollection } from 'astro:content'
 const items = await getCollection('projects')
+const base = Astro.site?.pathname ?? '/'
 ---
 <BaseLayout title="Projects">
   <Fragment slot="nav"><Nav /></Fragment>
   <h1 class="text-3xl font-bold mb-6">Projects</h1>
   <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
     {items.sort((a,b)=> (b.data.date||'').localeCompare(a.data.date||'')).map(p => (
-      <a href={`/${'projects'}/${p.slug}/`} class="group rounded-2xl p-5 border border-black/5 dark:border-white/5 shadow-soft hover:-translate-y-0.5 hover:shadow-md transition">
+      <a href={`${base}projects/${p.slug}/`} class="group rounded-2xl p-5 border border-black/5 dark:border-white/5 shadow-soft hover:-translate-y-0.5 hover:shadow-md transition">
         <h3 class="font-semibold mb-2 group-hover:text-primary transition">{p.data.title}</h3>
         <p class="text-sm text-neutral-600 dark:text-neutral-300">{p.data.summary}</p>
       </a>
