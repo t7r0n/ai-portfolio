@@ -6,7 +6,7 @@ tech:
   - TailwindCSS
   - TypeScript
 featured: true
-date: 2025-01-01
+date: '2025-01-01'
 repo: https://github.com/t7r0n/ai-portfolio
 ---
 

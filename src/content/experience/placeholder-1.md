@@ -1,7 +1,7 @@
 ---
 role: AI Engineer
 org: Example Corp
-start: 2022-06-01
+start: '2022-06-01'
 location: Dayton, OH, USA
 bullets:
   - Built RAG systems with sub-second latency.
@@ -10,4 +10,3 @@ tech:
   - Python
   - TypeScript
   - AWS
----

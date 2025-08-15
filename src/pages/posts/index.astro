@@ -1,16 +1,18 @@
 ---
-import BaseLayout from '../layouts/BaseLayout.astro'
-import Nav from '../components/Nav.astro'
-import Footer from '../components/Footer.astro'
+import BaseLayout from '../../layouts/BaseLayout.astro'
+import Nav from '../../components/Nav.astro'
+import Footer from '../../components/Footer.astro'
 import { getCollection } from 'astro:content'
 const posts = await getCollection('posts')
+const base = Astro.site?.pathname ?? '/'
+---
 ---
 <BaseLayout title="Posts">
   <Fragment slot="nav"><Nav /></Fragment>
   <h1 class="text-3xl font-bold mb-6">Posts</h1>
   <ul class="space-y-4">
     {posts.map(p => (
-      <li><a class="hover:text-primary" href={`/posts/${p.slug}/`}>{p.data.title}</a></li>
+      <li><a class="hover:text-primary" href={`${base}posts/${p.slug}/`}>{p.data.title}</a></li>
     ))}
   </ul>
   <Fragment slot="footer"><Footer /></Fragment>

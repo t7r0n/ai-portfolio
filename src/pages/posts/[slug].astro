@@ -2,10 +2,15 @@
 import BaseLayout from '../../layouts/BaseLayout.astro'
 import Nav from '../../components/Nav.astro'
 import Footer from '../../components/Footer.astro'
-import { getEntryBySlug } from 'astro:content'
+import { getEntryBySlug, getCollection } from 'astro:content'
 const entry = await getEntryBySlug('posts', Astro.params.slug!)
 if (!entry) throw new Error('Post not found')
 const { Content } = await entry.render()
+
+export async function getStaticPaths() {
+  const posts = await getCollection('posts')
+  return posts.map((p) => ({ params: { slug: p.slug } }))
+}
 ---
 <BaseLayout title={entry.data.title}>
   <Fragment slot="nav"><Nav /></Fragment>
